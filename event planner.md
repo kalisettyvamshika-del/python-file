@@ -1,23 +1,53 @@
-CAMPUS EVENT FINANCIAL PLANNING
+print("===== CAMPUS EVENT FINANCIAL PLANNING =====")
 
-Enter venue cost: 10000
-Enter equipment cost: 5000
-Enter catering cost: 20000
-Enter transport cost: 8000
-Enter certificate cost: 2000
+# Get event expenses
+venue = float(input("Enter venue cost: "))
+equipment = float(input("Enter equipment cost: "))
+catering = float(input("Enter catering cost: "))
+transport = float(input("Enter transport cost: "))
+certificate = float(input("Enter certificate cost: "))
 
-Total Event Expense: 45000.0
+# Calculate total expenses
+total = venue + equipment + catering + transport + certificate
 
-Enter sponsorship amount: 25000
+print("\nTotal Event Expense:", total)
 
-Sponsorship Shortfall: 20000.0
+# Get sponsorship amount
+sponsorship = float(input("Enter sponsorship amount: "))
 
-Enter expected participants: 100
+# Calculate sponsorship shortfall
+if sponsorship >= total:
+    shortfall = 0
+else:
+    shortfall = total - sponsorship
 
-Contribution per Participant: 200.0
-Minimum Registrations Required: 100
+print("Sponsorship Shortfall:", shortfall)
 
---- EVENT FINANCIAL REPORT ---
-Total Expense: 45000.0
-Sponsorship: 25000.0
-Shortfall: 20000.0
+# Get participant details
+participants = int(input("Enter expected participants: "))
+
+if participants > 0:
+
+    # Calculate contribution per participant
+    contribution = shortfall / participants
+
+    print("Contribution per Participant:", contribution)
+
+    # Calculate minimum registrations
+    if shortfall == 0:
+        minimum = 0
+    else:
+        minimum = participants
+
+    print("Minimum Registrations Required:", minimum)
+
+else:
+    print("Invalid participant count")
+
+# Display final report
+print("\n===== EVENT FINANCIAL REPORT =====")
+print("Total Expense:", total)
+print("Sponsorship:", sponsorship)
+print("Sponsorship Shortfall:", shortfall)
+
+print("Thank You!")
